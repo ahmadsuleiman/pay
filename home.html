@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Who Will Pay</title>
+
+</head>
+
+<body>
+    <div id ="controlDiv">
+        
+    </div>
+
+    <div id="DetailDiv">
+
+    </div>
+    <script type="application/javascript">
+        let btn = document.createElement("button");
+        btn.setAttribute("id","btn");
+        btn.innerText="Add Friend";
+        document.getElementById("controlDiv").appendChild(btn);
+        btn.addEventListener("click",addNewTextBox);
+        function addNewTextBox(){
+            let txt = document.createElement("input")
+            txt.type = "text";
+            txt.placeholder = "Enter Name " + (document.getElementById("DetailDiv").children.length/2+1);
+
+            document.getElementById("DetailDiv").appendChild(txt);
+            document.getElementById("DetailDiv").appendChild(document.createElement("br"));
+        }
+        let btn1 = document.createElement("button");
+        btn1.id = "btn1";
+        btn1.innerText = "choose one";
+        document.getElementById("controlDiv").appendChild(btn1);
+        btn1.addEventListener("click",chooseOne);
+        function chooseOne(){
+            let rand = parseInt(Math.random()*document.getElementById("DetailDiv").children.length/2);
+            alert(document.getElementById("DetailDiv").children[rand*2].value);
+        }
+    </script>
+</body>
+
+</html>
